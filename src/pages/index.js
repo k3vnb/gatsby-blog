@@ -11,7 +11,6 @@ export default ({ data }) => {
     <Layout>
       <SEO title="Home" />
       <div>
-        <h1>PDX Web Dev Blog</h1>
         <h4>{data.allMarkdownRemark.totalCount}</h4>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
@@ -46,7 +45,7 @@ export const query = graphql`
             description
             title
           }
-          excerpt
+          excerpt(format: PLAIN)
         }
       }
       totalCount
